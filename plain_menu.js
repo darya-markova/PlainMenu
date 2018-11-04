@@ -26,6 +26,7 @@ $(document).ready(function() {
                 duration: 100,
             });
         });
+
         item.animate({
             width: '100px',
             height: '100px',
@@ -37,34 +38,45 @@ $(document).ready(function() {
         });
     });
 
+    $('.plain-menu').mouseleave(function() {
+        if (!prevItem) {
+            return;
+        }
 
+        var prevCount = prevItem.prevAll().length;
 
+        prevItem.prevAll().clearQueue().finish();
+        prevItem.nextAll().clearQueue().finish();
+
+        prevItem.prevAll().each(function(index) {
+           $(this).animate({
+               left: (prevCount - 1 - index) * 50
+           }, {
+               duration: 100,
+           });
+       });
+
+       prevItem.nextAll().each(function(index) {
+           $(this).animate({
+               left: (prevCount + index + 1)* 50
+           }, {
+               duration: 100,
+           });
+       });
+    });
+
+    var prevItem;
     $('.plain-menu .item').mouseleave(function() {
         var item = $(this);
         var number = item.index();
-        var prevCount = item.prevAll().length;
+
+        prevItem = item;
 
         item.clearQueue().stop();
 
-        item.prevAll().clearQueue().finish();
-        item.nextAll().clearQueue().finish();
         item.removeClass('animated');
 
-        item.prevAll().each(function(index) {
-            $(this).animate({
-                left: (prevCount - 1 - index) * 50
-            }, {
-                duration: 100,
-            });
-        });
 
-        item.nextAll().each(function(index) {
-            $(this).animate({
-                left: (prevCount + index + 1)* 50
-            }, {
-                duration: 100,
-            });
-        });
         item.animate({
             width: '50px',
             height: '50px',

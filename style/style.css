@@ -18,19 +18,16 @@
 	text-align: center;
 	cursor: pointer;
 	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .plain-menu .item:hover {
 	/*opacity: 0.7;*/
 	background: lightcoral;
 	z-index: 10;
 }
-.plain-menu .item:hover > span {
-	line-height: 100px;
-}
-.item > span {
-	line-height: 50px;
-	/*transition: line-height 0.3s ease;*/
-}
+
 .item.prev {
 	/*background: lightgreen;*/
 	width: 80px !important;
