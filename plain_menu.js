@@ -16,14 +16,15 @@ $(document).ready(function() {
                 left: (prevCount - 1 - index) * 50 - 25
             }, {
                 duration: 100,
+                queue: false
             });
         });
-
         item.nextAll().each(function(index) {
             $(this).animate({
                 left: (prevCount + index + 1)* 50 + 25
             }, {
                 duration: 100,
+                queue: false
             });
         });
 
@@ -33,36 +34,27 @@ $(document).ready(function() {
             top: '0px',
             left: number * 50 - 25
         }, {
-            duration: 300,
+            duration: 100,
             queue: false
         });
     });
 
     $('.plain-menu').mouseleave(function() {
-        if (!prevItem) {
-            return;
-        }
+        //reset animation
+        $('.item').each(function() {
+            var item = $(this);
+            var number = item.index();
 
-        var prevCount = prevItem.prevAll().length;
-
-        prevItem.prevAll().clearQueue().finish();
-        prevItem.nextAll().clearQueue().finish();
-
-        prevItem.prevAll().each(function(index) {
-           $(this).animate({
-               left: (prevCount - 1 - index) * 50
-           }, {
-               duration: 100,
-           });
-       });
-
-       prevItem.nextAll().each(function(index) {
-           $(this).animate({
-               left: (prevCount + index + 1)* 50
-           }, {
-               duration: 100,
-           });
-       });
+            item.animate({
+                width: '50px',
+                height: '50px',
+                top: '25px',
+                left: number * 50
+            }, {
+                duration: 50,
+                queue:false
+            });
+        });
     });
 
     var prevItem;
@@ -70,12 +62,32 @@ $(document).ready(function() {
         var item = $(this);
         var number = item.index();
 
+        var prevCount = item.prevAll().length;
         prevItem = item;
 
         item.clearQueue().stop();
-
         item.removeClass('animated');
 
+        item.prevAll().clearQueue().finish();
+        item.nextAll().clearQueue().finish();
+
+        item.prevAll().each(function(index) {
+            $(this).animate({
+                left: (prevCount - 1 - index) * 50
+            }, {
+                duration: 50,
+                queue: false
+            });
+        });
+
+        item.nextAll().each(function(index) {
+            $(this).animate({
+                left: (prevCount + index + 1)* 50
+            }, {
+                duration: 50,
+                queue: false
+            });
+        });
 
         item.animate({
             width: '50px',
@@ -83,7 +95,7 @@ $(document).ready(function() {
             top: '25px',
             left: number * 50
         }, {
-            duration: 100,
+            duration: 50,
             queue:false
         });
     });
