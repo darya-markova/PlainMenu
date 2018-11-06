@@ -21,6 +21,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border-radius: 50%;
 }
 .plain-menu .item:hover {
 	/*opacity: 0.7;*/
@@ -43,11 +44,12 @@
 .item.previous, .item.following {
 	top: 0px;
 }
-.prev-elems {
+.prev-elems > .item {
+	background: lightgreen;
 	opacity: 0.7;
-	border: 1px solid red;
 }
-.next-elems {
+
+.next-elems > .item {
+	background: lightblue;
 	opacity: 0.7;
-	border: 1px solid blue;
 }

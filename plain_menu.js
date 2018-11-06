@@ -43,11 +43,17 @@ $(document).ready(function() {
         var followElems = $('.item.following');
         var prevElems =  $('.item.previous');
 
+        followElems.css({top: 0});
+        prevElems.css({top: 0});
+
         followElems.wrapAll(nextWrapper);
 
         followElems.each(function(index) {
             $(this).css({left: index*52});
         });
+
+        prevElems.css({left: '-=26px'});
+        followElems.css({left: '+=26px'});
 
         item.css({
             width: 100,
@@ -55,29 +61,6 @@ $(document).ready(function() {
             top: 0,
             left: number * 52 - 26
         });
-        /*item.animate({
-            width: '100px',
-            height: '100px',
-            top: '0px',
-            left: number * 52 - 26
-        }, {
-            duration: 100,
-            queue: false
-        });
-
-        prevElems.animate({
-            left: '-=26px'
-        }, {
-            duration: 100,
-            queue: false
-        });
-
-        followElems.animate({
-            left: '+=26px'
-        }, {
-            duration: 100,
-            queue: false
-        })*/
     });
 
     $('.plain-menu .item').mouseleave(function() {
@@ -89,6 +72,7 @@ $(document).ready(function() {
         item.prevAll().removeClass('previous');
         item.nextAll().removeClass('following');
 
+
         var prevCount = item.prevAll().length;
 
         item.css({
@@ -97,6 +81,9 @@ $(document).ready(function() {
             left: prevCount * 52,
             top: 25
         });
+
+        item.nextAll().css({top: 25});
+        item.prevAll().css({top: 25, left: '+=26px'});
 
         item.nextAll().each(function(index) {
             $(this).css({left: item.position().left + item.outerWidth() + 2 + index*52});
