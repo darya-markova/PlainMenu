@@ -6,9 +6,7 @@ $(document).ready(function() {
         }
 
         var item = $(this);
-
         item.addClass('animated');
-
         var number = item.index();
 
         var prevAll = item.prevAll();
@@ -18,6 +16,7 @@ $(document).ready(function() {
         var nextCount = nextAll.length;
 
         var prevWrapper = $("<div class='prev-elems'></div>");
+
         prevWrapper.css({
             position: 'absolute',
             left: 0,
@@ -25,8 +24,8 @@ $(document).ready(function() {
             height: 50,
             width: prevCount * 52
         });
-
         prevAll.addClass('previous');
+
         $('.item.previous').wrapAll(prevWrapper);
 
         var nextWrapper = $("<div class='next-elems'></div>");
@@ -37,7 +36,6 @@ $(document).ready(function() {
             height: 50,
             width: nextCount * 52
         });
-
         nextAll.addClass('following');
 
         var followElems = $('.item.following');
@@ -52,43 +50,76 @@ $(document).ready(function() {
             $(this).css({left: index*52});
         });
 
-        prevElems.css({left: '-=26px'});
-        followElems.css({left: '+=26px'});
+        $('.prev-elems').animate({
+            left: -26,
+        }, {
+            queue: false,
+            duration: 100
+        });
 
-        item.css({
+        $('.next-elems').animate({
+            left: '+=26px'
+        }, {
+            queue: false,
+            duration: 100
+        });
+
+        item.animate({
+            left: '-=26px',
             width: 100,
             height: 100,
-            top: 0,
-            left: number * 52 - 26
+            //top: 0
+        }, {
+            queue: false,
+            duration: 100
         });
     });
 
-    $('.plain-menu .item').mouseleave(function() {
+    $('.plain-menu .item').mouseleave(function(leaveEvent) {
+        console.log(leaveEvent);
+
         var item = $(this);
+
+        item.clearQueue().finish();
+        $('.prev-elems').clearQueue().finish();
+        $('.next-elems').clearQueue().finish();
+
+
+        var offset = $('.prev-elems').children().length * 52;
+        //с точностью рассчитать новые отступы
+        item.animate({
+            left: offset,
+            width: 50,
+            height: 50,
+            //top: 25
+        }, {
+            queue: false,
+            duration: 100
+        });
+        $('.prev-elems').animate({
+            left:  0
+        }, {
+            queue: false,
+            duration: 100
+        });
+
+        $('.next-elems').animate({
+            left: offset + 52
+        }, {
+            queue: false,
+            duration: 100
+        });
 
         $('.prev-elems').contents().unwrap();
         $('.next-elems').contents().unwrap();
 
-        item.prevAll().removeClass('previous');
-        item.nextAll().removeClass('following');
-
-
-        var prevCount = item.prevAll().length;
-
-        item.css({
-            width: 50,
-            height: 50,
-            left: prevCount * 52,
-            top: 25
-        });
-
-        item.nextAll().css({top: 25});
-        item.prevAll().css({top: 25, left: '+=26px'});
+        item.prevAll().css({top: 25}).removeClass('previous');
+        item.nextAll().css({top: 25}).removeClass('following');
 
         item.nextAll().each(function(index) {
-            $(this).css({left: item.position().left + item.outerWidth() + 2 + index*52});
+            $(this).css({left: offset + 52 + index*52});
         });
 
-       item.removeClass('animated');
+        item.removeClass('animated');
     });
 });
