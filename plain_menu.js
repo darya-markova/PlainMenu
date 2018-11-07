@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    var prevItem;
-
+    //сделать длительность пропорциональную числу блокам
     $('.plain-menu .item').mouseover(function() {
         if ($(this).hasClass('animated')) {
             return;
@@ -59,17 +58,18 @@ $(document).ready(function() {
             top: 0
         });
 
+
         $('.prev-elems').animate({
             left: -26
         }, {
-            duration: 100,
+            duration: 200,
             queue: false
         });
 
         $('.next-elems').animate({
             left:  prevElems.children().length * 52 + 52 + 26
         }, {
-            duration: 100,
+            duration: 200,
             queue: false
         });
     });
@@ -89,6 +89,7 @@ $(document).ready(function() {
             left: '+=24px',
             top: 25
         });
+
 
         $('.prev-elems').animate({
             left: 0
