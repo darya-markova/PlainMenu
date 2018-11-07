@@ -29,18 +29,6 @@
 	z-index: 10;
 }
 
-/*.item.prev {
-	!*background: lightgreen;*!
-	width: 80px !important;
-	height: 80px !important;
-	top: 10px !important;
-}
-.item.next {
-	!*background: dodgerblue;*!
-	width: 80px !important;
-	height: 80px !important;
-	top: 10px !important;
-}*/
 .item.previous, .item.following {
 	top: 0px;
 }
@@ -52,6 +40,9 @@
 .next-elems > .item {
 	background: lightblue;
 	opacity: 0.7;
+}
+.prev-elems {
+	border: 1px solid blue;
 }
 .next-elems {
 	border: 1px solid red;
