@@ -10,7 +10,7 @@ $(document).ready(function() {
 
         item.addClass('animated');
 
-        var number = item.index();
+        //var number = item.index();
 
         var prevAll = item.prevAll();
         var nextAll = item.nextAll();
@@ -51,14 +51,51 @@ $(document).ready(function() {
         followElems.each(function(index) {
             $(this).css({left: index*52});
         });
+
+        item.css({
+            width: 100,
+            height: 100,
+            left: '-=24px',
+            top: 0
+        });
+
+        $('.prev-elems').animate({
+            left: -26
+        }, {
+            duration: 100,
+            queue: false
+        });
+
+        $('.next-elems').animate({
+            left:  prevElems.children().length * 52 + 52 + 26
+        }, {
+            duration: 100,
+            queue: false
+        });
     });
 
     $('.plain-menu .item').mouseleave(function() {
         var item = $(this);
 
-
         var offset = $('.prev-elems').children().length * 52;
 
+        $('.prev-elems').clearQueue().stop();
+        $('.next-elems').clearQueue().stop();
+        item.clearQueue().stop();
+
+        item.css({
+            width: 50,
+            height: 50,
+            left: '+=24px',
+            top: 25
+        });
+
+        $('.prev-elems').animate({
+            left: 0
+        }, {
+            duration: 100,
+            queue: false
+        });
 
         $('.prev-elems').contents().unwrap();
         $('.next-elems').contents().unwrap();
