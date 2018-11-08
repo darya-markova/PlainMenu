@@ -21,10 +21,23 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background: linear-gradient(to bottom right, #ff5c77, #ffff33);
+	border-radius: 50%;
+	/*border: 2px solid transparent;
+	-moz-border-image: -moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+	-webkit-border-image: -webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+	border-image: linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+	border-image-slice: 1;*/
+}
+.item > span {
+	width: 80%;
+	height: 80%;
+	background-color: white;
 	border-radius: 50%;
 }
+
 .plain-menu .item:hover {
-	background: lightcoral;
+	/*background: lightcoral;*/
 	z-index: 10;
 }
 
