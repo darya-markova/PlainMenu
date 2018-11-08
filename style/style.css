@@ -21,13 +21,47 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(to bottom right, #ff5c77, #ffff33);
+	background: linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(250,250,250, 0.7));
 	border-radius: 50%;
-	/*border: 2px solid transparent;
-	-moz-border-image: -moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
-	-webkit-border-image: -webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
-	border-image: linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
-	border-image-slice: 1;*/
+}
+
+
+.plain-menu .item > span::after {
+	content: '';
+	position:absolute;
+	top: 10%;
+	left: 10%;
+	width: 80%;
+	height: 80%;
+}
+
+.plain-menu .item:nth-child(1) > span::after {
+	background: url('../assets/icons/chrome.png') center;
+	background-size: contain;
+}
+
+.plain-menu .item:nth-child(2) > span::after {
+	top: 8%;
+	left: 8%;
+	background: url('../assets/icons/edge.png') center;
+	background-size: contain;
+}
+
+.plain-menu .item:nth-child(3) > span::after {
+	background: url('../assets/icons/call.png') center;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(4) > span::after {
+	background: url('../assets/icons/skype.png') center;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(5) > span::after {
+	background: url('../assets/icons/youtube.png') center;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(6) > span::after {
+	background: url('../assets/icons/studio.png') center;
+	background-size: contain;
 }
 .item > span {
 	width: 80%;
