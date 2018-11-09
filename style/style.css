@@ -4,10 +4,10 @@
 }
 .plain-menu {
 	position: fixed;
-	/*bottom: 0;*/
-	left: 25px;
-	width: 100%;
+	left: calc(50% - 259px);
+	width: 518px;
 	height: 100px;
+	bottom: 25px;
 }
 .plain-menu .item {
 	position: absolute;
@@ -59,8 +59,24 @@
 	background: url('../assets/icons/youtube.png') center;
 	background-size: contain;
 }
+.plain-menu .item:nth-child(7) > span::after {
+	background: url('../assets/icons/secure.png') center;
+	background-size: contain;
+}
 .plain-menu .item:nth-child(6) > span::after {
-	background: url('../assets/icons/studio.png') center;
+	background: url('../assets/icons/twitter.png') center;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(8) > span::after {
+	background: url('../assets/icons/instagram.png') center;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(9) > span::after {
+	 background: url('../assets/icons/facebook.png') center;
+	 background-size: contain;
+ }
+.plain-menu .item:nth-child(10) > span::after {
+	background: url('../assets/icons/alarm.png') center;
 	background-size: contain;
 }
 .item > span {
@@ -71,7 +87,7 @@
 }
 
 .plain-menu .item:hover {
-	/*background: lightcoral;*/
+	box-shadow: 0 0 15px rgba(189,189,189,0.7);
 	z-index: 10;
 }
 
