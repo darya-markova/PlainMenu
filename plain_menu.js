@@ -4,7 +4,6 @@ $(document).ready(function() {
     var scales = [60, 70, 80, 100]; //размеры смежных элементов
     var scaleLength = scales.length;
 
-    var deltaWidths = [size];
 
     $('.plain-menu .item').mouseover(function() {
 
@@ -14,12 +13,12 @@ $(document).ready(function() {
 
         items.clearQueue().stop();
 
-        var i, leftOffset, newSize = size, newTop = size / 2;
+        var i, leftOffset, newSize = size, newTop = size / 2, delta = 0;
         var scaledIndex;
-
+        var deltaOffsets = [];
+        deltaOffsets[itemIndex] = size / 2; //сдвиг выделенного элемента
         //все предыдущие элементы
         for (i = itemIndex - 1; i >= 0; i--) {
-            leftOffset = i * (size + 2) - size / 2;
             scaledIndex = getLeftScaledIndex(itemIndex, i);
 
             if (scaledIndex >= 0) {
@@ -27,34 +26,9 @@ $(document).ready(function() {
                 newTop = (100 - newSize) / 2;
             }
 
-            $('.item').eq(i).animate({
-                left: leftOffset - (newSize - size),
-                top: newTop,
-                height: newSize,
-                width: newSize
-            }, {
-                duration: 100,
-                queue: false
-            });
-
-        }
-
-        newSize = size;
-        newTop = size / 2;
-
-        //все последующие элементы
-        for (i = items.length - 1; i > itemIndex; i--) {
-            leftOffset = i * (size + 2) + 25;
-            scaledIndex = getRightScaledIndex(itemIndex, i);
-
-            if (scaledIndex >= 0) {
-                newSize = scales[scaledIndex];
-                newTop = (100 - newSize) / 2;
-            }
-
-            if (i > itemIndex + 1) {
-                leftOffset += (newSize - size);
-            }
+            delta = (newSize - size) / 2; //смещение за счет увеличения ширины
+            deltaOffsets[i] = deltaOffsets[i + 1] + delta; //накапливаем смещение
+            leftOffset = i * (size + 2) - deltaOffsets[i];
 
             $('.item').eq(i).animate({
                 left: leftOffset,
@@ -67,7 +41,38 @@ $(document).ready(function() {
             });
         }
 
-        var itemLeft = item.index() * (size + 2) - size/2;
+        newSize = size;
+        newTop = size / 2;
+
+        //все последующие элементы
+        deltaOffsets = [];
+        deltaOffsets[itemIndex] = 0;
+
+        for (i = itemIndex + 1; i < items.length; i++) {
+            scaledIndex = getRightScaledIndex(itemIndex, i);
+
+            if (scaledIndex >= 0) {
+                newSize = scales[scaledIndex];
+                newTop = (100 - newSize) / 2;
+            }
+
+            delta = (newSize - size) / 2; //смещение за счет увеличения ширины
+            deltaOffsets[i] = deltaOffsets[i - 1] + delta; //накапливаем смещение
+            leftOffset = i * (size + 2) + deltaOffsets[i];
+
+            $('.item').eq(i).animate({
+                left: leftOffset,
+                top: newTop,
+                height: newSize,
+                width: newSize
+            }, {
+                duration: 100,
+                queue: false
+            });
+        }
+
+        //анимируем сам item
+        var itemLeft = item.index() * (size + 2) - size / 2;
 
         item.animate({
             width: 2*size,
@@ -116,12 +121,6 @@ $(document).ready(function() {
     }
     function getRightScaledIndex( selectedIndex, currentIndex) {
         return scaleLength - 1 - (currentIndex - selectedIndex);
-    }
-
-    function getLeftPrevSize(currentIndex, selectedIndex) {
-        var prevIndex = currentIndex + 1;
-        var prevScaledIndex = getLeftScaledIndex(scaleLength, selectedIndex, currentIndex)
-        return (prevScaledIndex >= 0) ? scales[prevIndex] : size;
     }
 });
 
