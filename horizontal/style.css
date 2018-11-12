@@ -6,8 +6,8 @@
 	position: fixed;
 	width: 518px;
 	height: 100px;
-	bottom: 25px;
 	font-family: Arial,Verdana;
+	bottom: 10px;
 }
 .plain-menu .item {
 	position: absolute;
@@ -127,6 +127,7 @@
 	z-index: -1;
 	border-color: rgba(240,240,240, 1) transparent transparent transparent;
 }
+
 @keyframes movingUp {
 	from {
 		opacity: 0;
