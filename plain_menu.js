@@ -18,6 +18,7 @@ $(document).ready(function() {
         var itemDeltaSize = scales[scaleLength - 1] - normalSize;
         var itemLeftOffset = itemIndex * (normalSize + margin) - itemDeltaSize / 2;
 
+
         animateItem(item, {
             width: normalSize + itemDeltaSize,
             height: normalSize + itemDeltaSize,
