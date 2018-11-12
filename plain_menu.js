@@ -1,9 +1,10 @@
 $(document).ready(function() {
     var plainMenu = $('.plain-menu');
-    var size = 50;
-    var scales = [60, 70, 80, 100]; //размеры смежных элементов
+    var normalSize = 50;
+    var normalTop = 25;
+    var scales = [60, 80, 100]; //размеры смежных элементов
     var scaleLength = scales.length;
-
+    var margin = 2;
 
     $('.plain-menu .item').mouseover(function() {
 
@@ -13,76 +14,54 @@ $(document).ready(function() {
 
         items.clearQueue().stop();
 
-        var i, leftOffset, newSize = size, newTop = size / 2, delta = 0;
-        var scaledIndex;
-        var deltaOffsets = [];
-        deltaOffsets[itemIndex] = size / 2; //сдвиг выделенного элемента
-        //все предыдущие элементы
+        var i, scaledIndex, newSize;
+        var itemDeltaSize = scales[scaleLength - 1] - normalSize;
+        var itemLeftOffset = itemIndex * (normalSize + margin) - itemDeltaSize / 2;
+
+
+        animateItem(item, {
+            width: normalSize + itemDeltaSize,
+            height: normalSize + itemDeltaSize,
+            top: normalTop - itemDeltaSize / 2,
+            left: itemLeftOffset
+        });
+
+        var cumulativeLeftOffset = itemDeltaSize / 2;
+        var cumulativeRightOffset = itemDeltaSize / 2;
+
+        var deltaSize, leftOffset;
+
         for (i = itemIndex - 1; i >= 0; i--) {
             scaledIndex = getLeftScaledIndex(itemIndex, i);
+            newSize = scaledIndex >= 0 ? scales[scaledIndex] : normalSize;
 
-            if (scaledIndex >= 0) {
-                newSize = scales[scaledIndex];
-                newTop = (100 - newSize) / 2;
-            }
+            deltaSize = newSize - normalSize;
+            cumulativeLeftOffset += deltaSize;
+            leftOffset = i * (normalSize + margin) - cumulativeLeftOffset;
 
-            delta = (newSize - size) / 2; //смещение за счет увеличения ширины
-            deltaOffsets[i] = deltaOffsets[i + 1] + delta; //накапливаем смещение
-            leftOffset = i * (size + 2) - deltaOffsets[i];
 
-            $('.item').eq(i).animate({
+            animateItem( $('.item').eq(i), {
                 left: leftOffset,
-                top: newTop,
-                height: newSize,
-                width: newSize
-            }, {
-                duration: 100,
-                queue: false
+                top: normalTop - deltaSize / 2,
+                height: normalSize + deltaSize,
+                width: normalSize  + deltaSize
             });
         }
-
-        newSize = size;
-        newTop = size / 2;
-
-        //все последующие элементы
-        deltaOffsets = [];
-        deltaOffsets[itemIndex] = 0;
 
         for (i = itemIndex + 1; i < items.length; i++) {
             scaledIndex = getRightScaledIndex(itemIndex, i);
+            newSize = scaledIndex >= 0 ? scales[scaledIndex] : normalSize;
+            deltaSize = newSize - normalSize;
+            leftOffset = i * (normalSize + margin) + cumulativeRightOffset;
 
-            if (scaledIndex >= 0) {
-                newSize = scales[scaledIndex];
-                newTop = (100 - newSize) / 2;
-            }
-
-            delta = (newSize - size) / 2; //смещение за счет увеличения ширины
-            deltaOffsets[i] = deltaOffsets[i - 1] + delta; //накапливаем смещение
-            leftOffset = i * (size + 2) + deltaOffsets[i];
-
-            $('.item').eq(i).animate({
+            animateItem( $('.item').eq(i), {
                 left: leftOffset,
-                top: newTop,
-                height: newSize,
-                width: newSize
-            }, {
-                duration: 100,
-                queue: false
+                top: normalTop - deltaSize / 2,
+                height: normalSize + deltaSize,
+                width: normalSize  + deltaSize
             });
+            cumulativeRightOffset += deltaSize;
         }
-
-        //анимируем сам item
-        var itemLeft = item.index() * (size + 2) - size / 2;
-
-        item.animate({
-            width: 2*size,
-            height: 2*size,
-            top: 0,
-            left: itemLeft
-        }, {
-            duration: 100,
-            queue: false
-        })
     });
 
     $('.plain-menu .item').mouseleave(function() {
@@ -92,35 +71,34 @@ $(document).ready(function() {
 
         var i, leftOffset;
         for (i = 0; i < items.length; i++) {
-            $('.item').eq(i).animate({
-                height: size,
-                width: size
-            }, {
-                duration: 100,
-                queue: false
-            });
+            animateItem($('.item').eq(i), {
+                height: normalSize,
+                width: normalSize
+            })
         }
 
         for (i = 0; i < items.length; i++) {
-            leftOffset = i * (size + 2);
+            leftOffset = i * (normalSize + 2);
 
-            $('.item').eq(i).animate({
-                top: 25,
-                left: leftOffset,
-                /*height: 50,
-                width: 50*/
-            }, {
-                duration: 100,
-                queue: false
-            });
+            animateItem($('.item').eq(i), {
+                top: normalTop,
+                left: leftOffset
+            })
         }
     });
 
-    function getLeftScaledIndex(selectedIndex, currentIndex) {
+    animateItem = (item, properties) => {
+      return item.animate(properties, {
+          duration: 100,
+          queue: false
+      });
+    };
+
+    getLeftScaledIndex = (selectedIndex, currentIndex) => {
         return scaleLength - 1 - (selectedIndex - currentIndex);
-    }
-    function getRightScaledIndex( selectedIndex, currentIndex) {
+    };
+    getRightScaledIndex = ( selectedIndex, currentIndex) => {
         return scaleLength - 1 - (currentIndex - selectedIndex);
-    }
+    };
 });
 

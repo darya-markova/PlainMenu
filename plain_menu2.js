@@ -32,7 +32,7 @@ $(document).ready(function() {
         }, {
             duration: 100,
             queue: false
-        })
+        });
 		
 		var cumulativeLeftOffsetComponent = itemDeltaWidth / 2;
 		var cumulativeRightOffsetComponent = itemDeltaWidth / 2;

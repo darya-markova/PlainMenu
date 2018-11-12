@@ -4,7 +4,6 @@
 }
 .plain-menu {
 	position: fixed;
-	left: calc(50% - 259px);
 	width: 518px;
 	height: 100px;
 	bottom: 25px;
@@ -23,7 +22,6 @@
 	justify-content: center;
 	background: linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(250,250,250, 0.7));
 	border-radius: 50%;
-	border: 1px solid red;
 }
 
 
@@ -54,7 +52,7 @@
 }
 .plain-menu .item:nth-child(4) > span::after {
 	background: url('../assets/icons/skype.png') center;
-	background-size: contain;
+	background-size: 100% 100%;
 }
 .plain-menu .item:nth-child(5) > span::after {
 	background: url('../assets/icons/youtube.png') center;
