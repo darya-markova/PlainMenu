@@ -1,0 +1,105 @@
+/*общий файл со стилями для 2 типов меню*/
+* {
+	padding: 0;
+	margin: 0;
+}
+.plain-menu {
+	position: fixed;
+	font-family: Arial,Verdana;
+}
+
+.plain-menu .item {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background: transparent;
+	text-align: center;
+	cursor: pointer;
+}
+
+.plain-menu .item > span.icon {
+	width: calc(100% - 1px);
+	height: calc(100% - 1px);
+	border-radius: 50%;
+	background: linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.plain-menu .item > span.icon::after {
+	content: '';
+	width: 80%;
+	height: 80%;
+	border-radius: 50%;
+}
+
+.plain-menu .item:nth-child(1) > span.icon::after {
+	background: url('../assets/icons/chrome.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(2) > span.icon::after {
+	background: url('../assets/icons/adobe.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(3) > span.icon::after {
+	background: url('../assets/icons/call.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(4) > span.icon::after {
+	background: url('../assets/icons/skype.png') center no-repeat;
+	background-size: 85% 85%;
+}
+.plain-menu .item:nth-child(5) > span.icon::after {
+	background: url('../assets/icons/youtube.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(7) > span.icon::after {
+	background: url('../assets/icons/secure.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(6) > span.icon::after {
+	background: url('../assets/icons/twitter.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(8) > span.icon::after {
+	background: url('../assets/icons/instagram.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(9) > span.icon::after {
+	background: url('../assets/icons/facebook.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(10) > span.icon::after {
+	background: url('../assets/icons/alarm.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(11) > span.icon::after {
+	background: url('../assets/icons/opera.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(12) > span.icon::after {
+	background: url('../assets/icons/app_store.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(13) > span.icon::after {
+	background: url('../assets/icons/firefox.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(14) > span.icon::after {
+	background: url('../assets/icons/wifi.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(15) > span.icon::after {
+	background: url('../assets/icons/owl.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(16) > span.icon::after {
+	background: url('../assets/icons/debian.png') center no-repeat;
+	background-size: contain;
+}
+.plain-menu .item:nth-child(17) > span.icon::after {
+	background: url('../assets/icons/android.png') center no-repeat;
+	background-size: contain;
+}
+

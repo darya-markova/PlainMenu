@@ -83,9 +83,9 @@ $(document).ready(function() {
     });
 
     $('.item').mouseleave(function({target}) {
-        if ($(target).hasClass('title')) {
+        /*if ($(target).hasClass('title')) {
             return;
-        }
+        }*/
         var items = $('.plain-menu').find('.item');
         $('.item').clearQueue().stop();
 

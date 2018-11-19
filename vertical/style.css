@@ -1,33 +1,12 @@
-* {
-	padding: 0;
-	margin: 0;
-}
+
 .plain-menu {
 	position: fixed;
-	width: 518px;
 	left: 10px;
+	width: 50px;
+	height: 100%;
 	font-family: Arial,Verdana;
 }
-.plain-menu .item {
-	position: absolute;
-	left: 0;
-	width: 50px;
-	height: 50px;
-	background: transparent;
-	text-align: center;
-	cursor: pointer;
-	border: 1px solid transparent;
-	border-bottom: none;
-}
-.item > span.icon {
-	width: calc(100% - 1px);
-	height: calc(100% - 1px);
-	border-radius: 50%;
-	background: linear-gradient(to bottom right, rgba(210,210,210, 0.7), rgba(230,230,230, 0.7));
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+
 .item > span.title {
 	display: none;
 	position: absolute;
@@ -49,7 +28,6 @@
 	opacity: 1;
 	left: 100px;
 	animation: movingRight 0.5s ease;
-	/*animation-delay: 0.5s;*/
 }
 
 .item span.title::after {
@@ -74,53 +52,3 @@
 		left: 100px;
 	}
 }
-
-.plain-menu .item > span.icon::after {
-	content: '';
-	width: 80%;
-	height: 80%;
-	border-radius: 50%;
-	background: white;
-}
-
-.plain-menu .item:nth-child(1) > span.icon::after {
-	background: url('../assets/icons/chrome.png') center no-repeat;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(2) > span.icon::after {
-	background: url('../assets/icons/adobe.png') center no-repeat;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(3) > span.icon::after {
-	background: url('../assets/icons/call.png') center no-repeat;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(4) > span.icon::after {
-	background: url('../assets/icons/skype.png') center no-repeat;
-	background-size: 85% 85%;
-}
-.plain-menu .item:nth-child(5) > span.icon::after {
-	background: url('../assets/icons/youtube.png') center no-repeat;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(7) > span.icon::after {
-	background: url('../assets/icons/secure.png') center no-repeat;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(6) > span.icon::after {
-	background: url('../assets/icons/twitter.png') center no-repeat;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(8) > span.icon::after {
-	background: url('../assets/icons/instagram.png') center no-repeat;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(9) > span.icon::after {
-	 background: url('../assets/icons/facebook.png') center no-repeat;
-	 background-size: contain;
-}
-.plain-menu .item:nth-child(10) > span.icon::after {
-	background: url('../assets/icons/alarm.png') center no-repeat;
-	background-size: contain;
-}
-
