@@ -1,4 +1,3 @@
-/*общий файл со стилями для 2 типов меню*/
 * {
 	padding: 0;
 	margin: 0;
@@ -15,9 +14,11 @@
 	background: transparent;
 	text-align: center;
 	cursor: pointer;
+	text-align:center;
 }
 
-.plain-menu .item > span.icon {
+.item > .icon {
+	position: absolute;
 	width: calc(100% - 1px);
 	height: calc(100% - 1px);
 	border-radius: 50%;
@@ -27,79 +28,95 @@
 	justify-content: center;
 }
 
-.plain-menu .item > span.icon::after {
+.plain-menu .item > .icon::after {
+	position: relative;
 	content: '';
 	width: 80%;
 	height: 80%;
 	border-radius: 50%;
+	z-index: 50;
+ }
+
+.item > span.title {
+	display: none;
+	width: 120px;
+	height: 30px;
+	position: absolute;
+	padding: 0 5px;
+	text-align: center;
+	font-size: 12px;
+	line-height: 30px;
+	letter-spacing: 1px;
+	border-radius: 5px;
+	background: rgba(240,240,240, 1);
+	white-space: nowrap;
 }
 
-.plain-menu .item:nth-child(1) > span.icon::after {
+.plain-menu .item:nth-child(1) > .icon::after  {
 	background: url('../assets/icons/chrome.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(2) > span.icon::after {
+.plain-menu .item:nth-child(2)> .icon::after  {
 	background: url('../assets/icons/adobe.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(3) > span.icon::after {
+.plain-menu .item:nth-child(3) > .icon::after  {
 	background: url('../assets/icons/call.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(4) > span.icon::after {
+.plain-menu .item:nth-child(4) > .icon::after  {
 	background: url('../assets/icons/skype.png') center no-repeat;
-	background-size: 85% 85%;
+	background-size: contain;
 }
-.plain-menu .item:nth-child(5) > span.icon::after {
+.plain-menu .item:nth-child(5) > .icon::after  {
 	background: url('../assets/icons/youtube.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(7) > span.icon::after {
+.plain-menu .item:nth-child(7) > .icon::after  {
 	background: url('../assets/icons/secure.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(6) > span.icon::after {
+.plain-menu .item:nth-child(6) > .icon::after  {
 	background: url('../assets/icons/twitter.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(8) > span.icon::after {
+.plain-menu .item:nth-child(8) > .icon::after {
 	background: url('../assets/icons/instagram.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(9) > span.icon::after {
+.plain-menu .item:nth-child(9) > .icon::after {
 	background: url('../assets/icons/facebook.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(10) > span.icon::after {
+.plain-menu .item:nth-child(10) > .icon::after  {
 	background: url('../assets/icons/alarm.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(11) > span.icon::after {
+.plain-menu .item:nth-child(11) > .icon::after {
 	background: url('../assets/icons/opera.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(12) > span.icon::after {
+.plain-menu .item:nth-child(12) > .icon::after {
 	background: url('../assets/icons/app_store.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(13) > span.icon::after {
+.plain-menu .item:nth-child(13) > .icon::after {
 	background: url('../assets/icons/firefox.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(14) > span.icon::after {
+.plain-menu .item:nth-child(14) > .icon::after  {
 	background: url('../assets/icons/wifi.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(15) > span.icon::after {
+.plain-menu .item:nth-child(15) > .icon::after {
 	background: url('../assets/icons/owl.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(16) > span.icon::after {
+.plain-menu .item:nth-child(16) > .icon::after  {
 	background: url('../assets/icons/debian.png') center no-repeat;
 	background-size: contain;
 }
-.plain-menu .item:nth-child(17) > span.icon::after {
+.plain-menu .item:nth-child(17) > .icon::after  {
 	background: url('../assets/icons/android.png') center no-repeat;
 	background-size: contain;
 }
-

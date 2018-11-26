@@ -3,105 +3,22 @@
 	margin: 0;
 }
 .plain-menu {
-	position: fixed;
-	width: 518px;
-	height: 100px;
-	font-family: Arial,Verdana;
-	bottom: 10px;
-}
-.plain-menu .item {
-	position: absolute;
-	top: 25px;
-	width: 50px;
-	height: 50px;
-	background: transparent;
-	text-align: center;
-	cursor: pointer;
-}
-
-.plain-menu .item > span.icon {
-	width: calc(100% - 1px);
-	height: calc(100% - 1px);
-	border-radius: 50%;
-	background: linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.plain-menu .item > span.icon::after {
-	content: '';
-	width: 80%;
-	height: 80%;
-	border-radius: 50%;
-	background: white;
-}
-.plain-menu .item:nth-child(1) > span.icon::after {
-	background: url('../assets/icons/chrome.png') center;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(2) > span.icon::after {
-	background: url('../assets/icons/edge.png') center;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(3) > span.icon::after {
-	background: url('../assets/icons/call.png') center;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(4) > span.icon::after {
-	background: url('../assets/icons/skype.png') center;
-	background-size: 100% 100%;
-}
-.plain-menu .item:nth-child(5) > span.icon::after {
-	background: url('../assets/icons/youtube.png') center;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(7) > span.icon::after {
-	background: url('../assets/icons/secure.png') center;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(6) > span.icon::after {
-	background: url('../assets/icons/twitter.png') center;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(8) > span.icon::after {
-	background: url('../assets/icons/instagram.png') center;
-	background-size: contain;
-}
-.plain-menu .item:nth-child(9) > span.icon::after {
-	 background: url('../assets/icons/facebook.png') center;
-	 background-size: contain;
- }
-.plain-menu .item:nth-child(10) > span.icon::after {
-	background: url('../assets/icons/alarm.png') center;
-	background-size: contain;
-}
-
-.item span.title {
-	display: none;
-	top: 0;
-}
-
-.item span.icon:hover ~ span.title {
-	display: block;
-	opacity: 1;
+	bottom: 5px;
 	width: 100%;
-	height: 30px;
-	position: absolute;
-	top: -50px;
-	padding: 0 5px;
-	text-align: center;
-	font-size: 12px;
-	font-weight: bold;
-	line-height: 30px;
-	letter-spacing: 1px;
-	border-radius: 5px;
-	background: rgba(240,240,240, 1);
-	animation: movingUp 0.3s ease;
-	color: #676d73;
+	height: 50px;
+	font-family: Arial,Verdana;
 }
 
-.item span.title::after {
+.plain-menu .item {
+	top: 0px;
+}
+
+.item > span.title {
+	top: 0px;
+	left: calc(50% - 60px);
+}
+
+.item > span.title::after {
 	content: '';
 	position: absolute;
 	width: 0;
@@ -113,10 +30,18 @@
 	border-color: rgba(240,240,240, 1) transparent transparent transparent;
 }
 
+.item:hover > span.title {
+	display: block;
+	opacity: 1;
+	top: -50px;
+	animation: movingUp 0.3s ease;
+}
+
+
 @keyframes movingUp {
 	from {
 		opacity: 0;
-		top: 0px
+		top: 0px;
 	}
 	to {
 		opacity: 1;

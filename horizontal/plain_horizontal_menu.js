@@ -3,12 +3,15 @@ $(document).ready(function() {
 	var normalHeight = 50;
 	var interval = 2;
 	
-	var topForNormal = 25;
+	var topForNormal = 0;
 	
 	var sigma = 1;
 	
 
-    $('.plain-menu .item').mouseover(function() {
+    $('.plain-menu .item').mouseover(function({target}) {
+        if ($(target).hasClass('title')) {
+            return;
+        }
 
         var item = $(this);
         var items = $('.plain-menu').find('.item');
