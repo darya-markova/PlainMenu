@@ -22,20 +22,10 @@
 	width: calc(100% - 1px);
 	height: calc(100% - 1px);
 	border-radius: 50%;
-	background: linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-
-.plain-menu .item > .icon::after {
-	position: relative;
-	content: '';
-	width: 80%;
-	height: 80%;
-	border-radius: 50%;
-	z-index: 50;
- }
 
 .item > span.title {
 	display: none;
@@ -52,71 +42,122 @@
 	white-space: nowrap;
 }
 
-.plain-menu .item:nth-child(1) > .icon::after  {
-	background: url('../assets/icons/chrome.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(1) > .icon  {
+	background:
+			url('../assets/icons/chrome.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(2)> .icon::after  {
-	background: url('../assets/icons/adobe.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(2)> .icon {
+	background:
+			url('../assets/icons/adobe.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(3) > .icon::after  {
-	background: url('../assets/icons/call.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(3) > .icon {
+	background:
+			url('../assets/icons/call.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(4) > .icon::after  {
-	background: url('../assets/icons/skype.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(4) > .icon  {
+	background:
+			url('../assets/icons/skype.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(5) > .icon::after  {
-	background: url('../assets/icons/youtube.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(5) > .icon  {
+	background:
+			url('../assets/icons/youtube.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(7) > .icon::after  {
-	background: url('../assets/icons/secure.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(7) > .icon  {
+	background:
+			url('../assets/icons/secure.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(6) > .icon::after  {
-	background: url('../assets/icons/twitter.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(6) > .icon  {
+	background:
+			url('../assets/icons/twitter.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(8) > .icon::after {
-	background: url('../assets/icons/instagram.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(8) > .icon {
+	background:
+			url('../assets/icons/instagram.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(9) > .icon::after {
-	background: url('../assets/icons/facebook.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(9) > .icon {
+	background:
+			url('../assets/icons/facebook.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(10) > .icon::after  {
-	background: url('../assets/icons/alarm.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(10) > .icon {
+	background:
+			url('../assets/icons/alarm.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(11) > .icon::after {
-	background: url('../assets/icons/opera.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(11) > .icon {
+	background:
+			url('../assets/icons/opera.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(12) > .icon::after {
-	background: url('../assets/icons/app_store.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(12) > .icon {
+	background:
+			url('../assets/icons/app_store.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(13) > .icon::after {
-	background: url('../assets/icons/firefox.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(13) > .icon {
+	background:
+			url('../assets/icons/firefox.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(14) > .icon::after  {
-	background: url('../assets/icons/wifi.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(14) > .icon  {
+	background:
+			url('../assets/icons/settings.png') center no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80% 80%, cover;
 }
-.plain-menu .item:nth-child(15) > .icon::after {
-	background: url('../assets/icons/owl.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(15) > .icon {
+	background:
+			url('../assets/icons/owl.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(16) > .icon::after  {
-	background: url('../assets/icons/debian.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(16) > .icon  {
+	background:
+			url('../assets/icons/debian.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
-.plain-menu .item:nth-child(17) > .icon::after  {
-	background: url('../assets/icons/android.png') center no-repeat;
-	background-size: contain;
+.plain-menu .item:nth-child(17) > .icon  {
+	background:
+			url('../assets/icons/android.png') 50% 50% no-repeat,
+			linear-gradient(to bottom right, rgba(230,230,230, 0.7), rgba(240,240,240, 0.7));
+
+	background-size: 80%, cover;
 }
