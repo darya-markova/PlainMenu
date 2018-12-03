@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Darya Markova</title>
+    <link rel="stylesheet" href="assets/common_style.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.min.js"></script>
+    <script type="text/javascript" src="plain_menu.js"></script>
+</head>
+<body>
+</body>
+<script>
+    var menu = new VerticalMenu();
+    //добавить возможность указывать иконку, размеры пунктов меню
+    //скроллинг, для случае если пункты меню не помещаются
+    menu.addItem('Mathematics');
+    menu.addItem('Physics');
+    menu.addItem('Sociology');
+    menu.addItem('Computer Science');
+    menu.addItem('English');
+
+    $(document).ready(function() {
+        menu.render($('body'));
+    });
+</script>
+</html>
